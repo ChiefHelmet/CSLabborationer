@@ -1,0 +1,101 @@
+﻿Övning 1
+
+Denna övning innehåller ingen programmering, utan består av ett antal frågor som du kan använda dig av för att repetera viktiga delar av första kapitlet. Övningen hör till kapitel 1 i boken.
+Repetitionsfrågor
+
+Vad står CLR för, och vad används den till?
+Vad är BCL?
+Vad innebär det att kompilera källkod?
+Den första kompileringen av källkod genererar en assembly i CIL-format. Vad står CIL för?
+Vad kallas den andra kompileringen, dvs den som tar en assembly på CIL-format och omvandlar till maskinkod? Här bör du känna till både förkortning och vad den står för. När sker denna kompilering normalt?
+Nämn en fördel och en nackdel med att .NET-program körs i en runtime-miljö.
+	
+	
+	1:	- CLR står för 'Common Language Runtime'.
+		- Det är en virtuell maskin som ordnar en exekveringsmiljö så att ett program kan köras semi-separat från resten av datorn, och kan därmed exempelvis krascha utan att dra hela datorn med sig.
+		- Använder JIT-kompliering, alltså 'Just In Time'-kompilering, så att ett program bara läser in det som behövs för tillfället, och inte alla resurser, för att spara tid och minne.
+		- Är en tolk som översätter CIL (Common Intermediate Language) till maskinkod som gör att program kan köras på så många datorer som möjligt. Nyckelord - interoperabilitet.
+	
+	2:	- BCL: Base Class Library. Ett bibliotek med klasser som är .NET-ramverket, och som dina program kan använda, med.
+	
+	3:	- Kompilera Källkod: Den sista biten i programmering. Att göra koden till ett assembly, alltså en EXE-fil eller dll.
+	
+	4:	- CIL: Common Intermediate Language.
+	
+	5:	- JIT Compilation- Just In Time compilation. Tar och behandlar resurser allt eftersom att de behövs, så att inte alla relaterade resurser hålls i minnet samtidigt. Koden görs om till ettor och nollor allt eftersom att det behövs. Sker när man kör programmet.
+
+	6:	- Fördel: Att programmet finns i ett semi-självständigt stadie och är därmed mestadels förhindrat från att influera många kritiska komponenter på datorn (så att om programmet kraschar så gör inte att hela datorn gör det). Nackdel: Det är en mellanman mellan datorns råa kraft och programmet, vilket ofta är till prestandans förfång.
+
+
+Övning 2
+
+Denna övning innehåller väldigt lite programmering, mestadels handlar det fortfarande om att hålla reda på begrepp. Övningen hör till kapitel 2 i boken.
+Repetitionsfrågor
+
+    Vad är en identifierare?
+    Hur får en identifierare se ut?
+    Vad är camel case och pascal case?
+    Vad är nyckelord?
+    Vad innebär det att C# är case sensitive?
+    Kompilatorn struntar i s.k. whitespace, men för tydlighetens skulle bör alltid källkod formatteras för maximal läsbarhet. Nämn ett par olika typer av whitespace.
+    Vilket tecken används för att avsluta ("terminera") ett uttryck?
+    Flera uttryck kan grupperas tillsammans till ett s.k. block, t.ex. för att utföras tillsammans om ett villkor är uppfyllt. Hur grupperas uttryck?
+    När bör källkod kommenteras? Vilka olika kommentarstyper finns, och hur anges de?
+
+
+	1:	Variabler, metoder, parametrar, och en hel drös andra saker.
+	2:	Strikt: Inga mellanrum, allting i ett ord. Inga siffror som första tecknet, men annars är de tillåtna. undertecken och bokstäverna a-z och A-Z tillåta överallt. Ska du ha med ett @ så får det bara vara det första tecknet. God sed: Att använda camelCasing, beskrivande namn, kalla den inte för nyckelord, skriv dem på Engelska.
+	3:	camelCase betyder att man skriver saker utan mellanrum, där första ordet börjar med en liten bokstav och följande bokstäver börjar på stor bokstav. PascalCase fungerar likedant som camelCase, fast där första bokstaven i första ordet också är en stor bokstav.
+	4:	Ord som är reserverade till saker som fördefinerade funktioner och datatyper. Du kan exempelvis inte kalla en variabel för 'double' då det ordet är reserverat till en datatyp, eller 'new', som används för att göra nya object av klasser.
+	5:	Att en liten bokstav och en stor bokstav inte innebär samma sak. Du kan skriva en funktion som räknar ut chansen att en pinto ska explodera när den krockar i alla möjliga scenarion och kalla den för 'ExplodingPinto', men om du kallar på den med endast små bokstäver så händer ingenting.
+	6:	" ", eller mellanslag. "	", eller tab. "
+	", eller retur.
+	7:	";", eller semikolon.
+	8:	Man kapslar in dom i { klammerparanteser }.
+	9:	Det finns typen med två snedstreck (//), som kommenterar ut allting som följs efter dem på den raden de står på. Sen finns där typen med snedstreck och stjärna (/*), som kommenterar ut all följande kod fram till en en stjärna och ett snedstreck (*/). Sen finns XML-kommentering, som skrivs med tre snedstreck (///).
+
+
+	
+
+
+
+
+
+ 
+
+
+Övningsuppgifter
+Uppgift 1
+
+Starta Visual Studio, skapa ett nytt projekt med följande inställningar:
+
+    Typ "Console Application"
+    Name "Uppgift 1" (utan dubbelfnuttar)
+    Solution name "Övning 1" ( -"- )
+    "Create directory for solution" ska vara iklickad.
+
+Klicka OK. Visual Studio genererar nu projektet, vilket inkluderar en källkodsfil. Lägg märke till att namespace fick namnet "Uppgift_1" eftersom mellanslag inte är giltiga tecken i en identifierare.
+
+Ta bort all kod i den genererade filen, och skriv in koden i exemplet på sidanb 16 i boken och testkör genom att trycka på F5, alt klicka på den gröna pilen. Programmet körs nu i debuggern, och avslutas så fort alla uttryck är slutförda, dvs ett fönster visas en kort stund och försvinner igen. För att "tvinga" konsollfönstret att vara öppet en längre stund, lägg till följande rad direkt efter utskriften:
+
+ 
+
+Console.ReadLine();
+
+Detta gör att programmet skriver ut texten, och därefter väntar på att du trycker retur innan programmet avslutas. Avsluta programmet genom att trycka retur.
+Uppgift 2
+
+En viktig del av att jobba som utvecklare är att känna sina verktyg. I denna uppgift ska du generera lite fel i källkoden för att se vad kompilatorn har att säga om dessa. Utgå från förra uppgiften. Generera följande fel och försök att testköra för varje punkt, och se vad kompilatorn säger. Ta bort felen efterhand, så att du har ett aktivt åt gången.
+
+    Ta bort avslutande semikolon från ett uttryck.
+    Döp om Main till Majn.
+    Döp om class till klass.
+    Ta bort en "stänga-måsvinge".
+    Kommentera bort "using System;"
+
+Uppgift 3
+
+Utgå från samma källkod igen. Ta bort alla fel från föregående uppgift. Experimentera fritt med Console.Write/WriteLine och format strings enligt sid 24-25 i boken. Kommentera gärna efterhand som du lägger till kod, för att förklara vad du testar.
+Uppgift 4
+
+Öppna utforskaren och lokalisera projektet som du har jobbat med. Lägg märke till vilka filer och kataloger som skapats. Gå därefter in i Visual Studio och välj Build->Clean Solution, och se efter i utforskaren vilka filer som togs bort.
