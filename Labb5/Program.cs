@@ -86,7 +86,7 @@ namespace Labb5
                 if (item != null)
                 { // TODO: Anväda is för att se om varan är eco.
                     Console.WriteLine(i + "\r\n" + item.ToString());
-                    Console.WriteLine("------------");
+                    Console.WriteLine("-----------");
                 }
             }
 
