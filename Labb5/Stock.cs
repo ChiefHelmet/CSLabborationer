@@ -10,7 +10,7 @@ namespace Labb5
     {
         private StockItem[] _stockItem = new StockItem[10];
 
-        private StockItem this[int index]
+        public StockItem this[int index]
         {
             get
             {
@@ -19,7 +19,7 @@ namespace Labb5
                 else
                     throw new Exception($"Noooo. Getting index [{index}] is out of boundary.");
             }
-            set
+            private set
             {
                 if (index >= 0 && index < this._stockItem.Length)
                     this._stockItem[index] = value;
