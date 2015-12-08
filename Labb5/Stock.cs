@@ -36,15 +36,15 @@ namespace Labb5
 
         }
 
-        internal bool AddÍtem(StockItem item)
+        internal bool AddItem(StockItem item)
         {
             try
             {
                 int freeIndexPosition = -1;
 
-                for (int i = 0; i < this._stockItem.Length; i++)
+                for (int i = 0; i < this.Length; i++)
                 {
-                    if (this._stockItem[i] == null)
+                    if (this[i] == null)
                     {
                         freeIndexPosition = i;
                         break;
@@ -52,9 +52,9 @@ namespace Labb5
                 }
 
                 if (freeIndexPosition == -1)
-                    throw new Exception("Your shit doset fit.");
+                    throw new Exception("Your shit doesn't fit in the stuff.");
                 else
-                    this._stockItem[freeIndexPosition] = item;
+                    this[freeIndexPosition] = item;
 
                 return true;
             }
@@ -72,8 +72,7 @@ namespace Labb5
 
         public override string ToString()
         {
-            //TODO: Implemnt.
-            return base.ToString();
+            return "Items in stock: " + this.Count.ToString();
         }
     }
 }

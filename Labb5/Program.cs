@@ -41,10 +41,10 @@ namespace Labb5
             Plate redPlate = new Plate() { Id = 0, Name = "Plåthult", Type = "Deep", StockCount = 125 };
             Plate bluePlate = new Plate() { Id = 0, Name = "Porslinhult", Type = "Flat", StockCount = 321 };
 
-            stock.AddÍtem((StockItem)appleJuice);
-            stock.AddÍtem((StockItem)orangeJuice);
-            stock.AddÍtem((StockItem)redPlate);
-            stock.AddÍtem((StockItem)bluePlate);
+            stock.AddItem((StockItem)appleJuice);
+            stock.AddItem((StockItem)orangeJuice);
+            stock.AddItem((StockItem)redPlate);
+            stock.AddItem((StockItem)bluePlate);
 
             return stock;
         }
@@ -76,7 +76,7 @@ namespace Labb5
             }
         }
 
-        private void _ListItems()
+        private void _ListItems(bool goBackToMenu = true)
         {
             Console.Clear();
             for (int i = 0; i < ActiveStock.Length; i++)
@@ -84,21 +84,29 @@ namespace Labb5
                 StockItem item = ActiveStock.GetItem(i);
 
                 if (item != null)
-                { // TODO: Anväda is för att se om varan är eco.
+                {
                     Console.WriteLine(i + "\r\n" + item.ToString());
-                    Console.WriteLine("-----------");
+                    if (item is EcoStockItem)
+                    {
+                        Console.WriteLine("ECO");
+                    }
+                    Console.WriteLine("------------");
                 }
             }
 
-            Console.WriteLine("Tryck på valfri knapp för att fortsätta.");
-            Console.ReadKey();
+            
+            if (goBackToMenu)
+            {
+                Console.WriteLine("Tryck på valfri knapp för att fortsätta.");
+                Console.ReadKey();
 
-            _PrintMenu();
+                _PrintMenu();
+            }
         }
 
         private void _EditItemStock()
         {
-            _ListItems();
+            _ListItems(goBackToMenu: false);
             int userInput = _GetNumberFromUser("Select item to update: ", 0);
 
             while (!_EditItemByIndex(userInput))
@@ -149,10 +157,10 @@ namespace Labb5
                 {
                     case "juice":
                         var juice = new Juice() { Id = 0, Name = name, Type = type, Marking = marking, StockCount = stockCount };
-                        ActiveStock.AddÍtem(juice);
+                        ActiveStock.AddItem(juice);
                         break;
                     case "plate":
-                        ActiveStock.AddÍtem(
+                        ActiveStock.AddItem(
                             new Plate() { Id = 0, Name = name, Type = type, StockCount = stockCount }
                             );
                         break;
@@ -160,9 +168,12 @@ namespace Labb5
                         throw new Exception(itemType + " is not a valid product type.");
                 }
             }
-            catch (Exception ex)
-            { // TODO: Visa felmedelande o vara inte kan läggas till.
+            catch(Exception ex)
+            {
                 Console.WriteLine("Varan kunde inte läggas till.");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Tryck på valfri tangent för att fortsätta.");
+                Console.ReadKey();
             }
 
             _PrintCreateMenu();

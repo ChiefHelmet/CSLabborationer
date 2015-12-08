@@ -58,7 +58,7 @@ namespace Labb5
 
         public override string ToString()
         {
-            return $"ID: {Id}\r\nName: {Name}\r\nStockCount: {StockCount}\r\n";
+            return $"ID: {Id}\r\nName: {Name}\r\nStockCount: {StockCount}";
         }
     }
 }

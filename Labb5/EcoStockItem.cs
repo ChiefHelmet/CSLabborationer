@@ -25,7 +25,7 @@ namespace Labb5
                 }
                 else
                 {
-                    throw new Exception($"{value} is invalid marking");
+                    throw new Exception($"{value} is invalid marking for an ecological product.");
                 }
             }
         }

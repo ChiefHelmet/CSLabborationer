@@ -24,7 +24,7 @@ namespace Labb5
                     _type = value;
                 }
                 else
-                { throw new Exception(string.Format("{0} is not a valid type.", value)); }
+                { throw new Exception(string.Format("{0} is not a valid type for juice.", value)); }
             }
         }
 
