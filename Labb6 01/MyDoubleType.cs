@@ -32,21 +32,26 @@ namespace Labb6_01
 
         public static MyDoubleType operator +(MyDoubleType myDoubleType, double doubleTrouble)
         {
-            myDoubleType.DoubleValue += doubleTrouble;
-            return myDoubleType;
+            var result = new MyDoubleType();
+            result.DoubleValue = myDoubleType.DoubleValue + doubleTrouble;
+            //myDoubleType.DoubleValue += doubleTrouble;
+            //return myDoubleType;
+            return result;
+            //return new MyDoubleType(myDoubleType.DoubleValue + doubleTrouble);
         }
-        public static MyDoubleType operator +(MyDoubleType myDoubleType, MyDoubleType doubleTrouble)
-        {
-            myDoubleType.DoubleValue += doubleTrouble.DoubleValue;
-            return myDoubleType;
-        }
+        //public static MyDoubleType operator +(MyDoubleType myDoubleType, MyDoubleType doubleTrouble)
+        //{
+        //    myDoubleType.DoubleValue += doubleTrouble.DoubleValue;
+        //    return myDoubleType;
+
+        //}
         public static MyDoubleType operator -(MyDoubleType myDoubleType, double doubleTrouble)
         {
             var result = new MyDoubleType();
             result.DoubleValue = myDoubleType.DoubleValue - doubleTrouble;
+            return result;
             //myDoubleType.DoubleValue -= doubleTrouble;
             //return myDoubleType;
-            return result;
         }
         public static MyDoubleType operator *(MyDoubleType myDoubleType, double doubleTrouble)
         {
@@ -58,8 +63,11 @@ namespace Labb6_01
         }
         public static MyDoubleType operator /(MyDoubleType myDoubleType, double doubleTrouble)
         {
-            myDoubleType.DoubleValue /= doubleTrouble;
-            return myDoubleType;
+            var result = new MyDoubleType();
+            result.DoubleValue = myDoubleType.DoubleValue/doubleTrouble;
+            return result;
+            //myDoubleType.DoubleValue /= doubleTrouble;
+            //return myDoubleType;
         }
         public static bool operator ==(MyDoubleType myDoubleType, double doubleTrouble)
         {
