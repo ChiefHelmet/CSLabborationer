@@ -8,29 +8,93 @@ namespace Labb6_01
 {
     class MyDoubleType
     {
-        public double DoubleValue { get; set; } // för när man inte behöver validera. Om vi vill validera, använd den nedanför
+        private double doubleValue;
 
-        // public TYPE Type { get; set; } // <- prop
+        public double DoubleValue
+        {
+            get
+            {
+                return doubleValue; 
+                
+            }
+            set { doubleValue = value; }
+        }
 
-        //    private double doubleValue; // <- propfull
+        public MyDoubleType()
+        {
+            DoubleValue = 2000;
+        }
 
-        //    public double DoubleValue
-        //    {
-        //        get { return doubleValue; }
-        //        set { doubleValue = value; }
-        //    }
+        public MyDoubleType(double doubleD)
+        {
+            DoubleValue = doubleD;
+        }
 
+        public static MyDoubleType operator +(MyDoubleType myDoubleType, double doubleTrouble)
+        {
+            myDoubleType.DoubleValue += doubleTrouble;
+            return myDoubleType;
+        }
+        public static MyDoubleType operator +(MyDoubleType myDoubleType, MyDoubleType doubleTrouble)
+        {
+            myDoubleType.DoubleValue += doubleTrouble.DoubleValue;
+            return myDoubleType;
+        }
+        public static MyDoubleType operator -(MyDoubleType myDoubleType, double doubleTrouble)
+        {
+            myDoubleType.DoubleValue -= doubleTrouble;
+            return myDoubleType;
+        }
+        public static MyDoubleType operator *(MyDoubleType myDoubleType, double doubleTrouble)
+        {
+            myDoubleType.DoubleValue *= doubleTrouble;
+            return myDoubleType;
+        }
+        public static MyDoubleType operator /(MyDoubleType myDoubleType, double doubleTrouble)
+        {
+            myDoubleType.DoubleValue /= doubleTrouble;
+            return myDoubleType;
+        }
+        public static bool operator ==(MyDoubleType myDoubleType, double doubleTrouble)
+        {
+
+            return myDoubleType.DoubleValue == doubleTrouble;
+        }
+        public static bool operator !=(MyDoubleType myDoubleType, double doubleTrouble)
+        {
+
+            return myDoubleType.DoubleValue != doubleTrouble;
+        }
+
+        //Varför måste != finnas bara för att == finns?
+        public static bool operator <(MyDoubleType myDoubleType, double doubleTrouble)
+        {
+
+            return myDoubleType.DoubleValue < doubleTrouble;
+        }
         
-        
-        //public static MyDoubleType operator +()
-        
-        
-        
+        public static bool operator >(MyDoubleType myDoubleType, double doubleTrouble)
+        {
+
+            return myDoubleType.DoubleValue > doubleTrouble;
+        }
+        // samma här
+        public static bool operator <(MyDoubleType myDoubleType, MyDoubleType doubleTrouble)
+        {
+
+            return myDoubleType.DoubleValue < doubleTrouble.DoubleValue;
+        }
+        public static bool operator >(MyDoubleType myDoubleType, MyDoubleType doubleTrouble)
+        {
+
+            return myDoubleType.DoubleValue > doubleTrouble.DoubleValue;
+        }
+
+
 
         public override string ToString()
         {
-            return DoubleValue.ToString();
-            //return base.ToString();
+            return doubleValue.ToString();
         }
     }
 }
