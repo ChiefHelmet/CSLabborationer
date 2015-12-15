@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Labb6_01
 {
-    class Point3D : Point
+    class Point3D
     {
         private int z;
 
@@ -21,7 +21,7 @@ namespace Labb6_01
             
         }
         
-        public Point3D(int x, int y, int z = 0) : base(x, y)
+        public Point3D(int x, int y, int z = 0)// : base(x, y)
         {
             //this.X = x;
             //this.Y = y;

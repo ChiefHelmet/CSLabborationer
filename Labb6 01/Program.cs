@@ -29,7 +29,16 @@ namespace Labb6_01
             //Point3D point3D = new Point(); //  går inte
 
             Point pointToPoint3D = new Point();
-            Point3D point3D = (Point3D)pointToPoint3D; // Detta gick inte
+            Point3D point3D = pointToPoint3D;
+
+            Console.WriteLine(pointToPoint3D);
+            Console.WriteLine(point3D);
+
+            MyDoubleType myDoubleType = new MyDoubleType();
+            myDoubleType.DoubleValue = 2000;
+            Console.WriteLine(myDoubleType.DoubleValue);
+
+
 
             //Point3D point3DToPoint = new Point3D();
             //Point point = (Point)point3DToPoint; // Detta gick, däremot
