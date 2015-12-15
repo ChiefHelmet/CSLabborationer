@@ -16,11 +16,11 @@ namespace Labb6_01
             //string
             //unsigned long
 
-            //float aFloat = 10.05f;
-            //long aLong = -5000;
-            //char aChat = 'D';
-            //string aString = "Ze German";
-            //ulong anUlong = 9000;
+            float aFloat = 10.05f;
+            long aLong = -5000L;
+            char aChat = 'D';
+            string aString = "Ze German";
+            ulong anUlong = 9000UL;
 
             //Point point = new Point3D(4,4,4);
             //{

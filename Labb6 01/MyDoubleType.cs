@@ -14,8 +14,8 @@ namespace Labb6_01
         {
             get
             {
-                return doubleValue; 
-                
+                return doubleValue;
+
             }
             set { doubleValue = value; }
         }
@@ -42,13 +42,19 @@ namespace Labb6_01
         }
         public static MyDoubleType operator -(MyDoubleType myDoubleType, double doubleTrouble)
         {
-            myDoubleType.DoubleValue -= doubleTrouble;
-            return myDoubleType;
+            var result = new MyDoubleType();
+            result.DoubleValue = myDoubleType.DoubleValue - doubleTrouble;
+            //myDoubleType.DoubleValue -= doubleTrouble;
+            //return myDoubleType;
+            return result;
         }
         public static MyDoubleType operator *(MyDoubleType myDoubleType, double doubleTrouble)
         {
-            myDoubleType.DoubleValue *= doubleTrouble;
-            return myDoubleType;
+            ////skapa en ny retur 
+            //myDoubleType.DoubleValue = myDoubleType.DoubleValue * doubleTrouble;
+            //return myDoubleType;
+
+            return new MyDoubleType(myDoubleType.DoubleValue * doubleTrouble);
         }
         public static MyDoubleType operator /(MyDoubleType myDoubleType, double doubleTrouble)
         {
@@ -72,7 +78,7 @@ namespace Labb6_01
 
             return myDoubleType.DoubleValue < doubleTrouble;
         }
-        
+
         public static bool operator >(MyDoubleType myDoubleType, double doubleTrouble)
         {
 
